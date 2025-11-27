@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # third party
     "ninja_extra",
     "ninja_jwt",
+    "corsheaders",
     # internal apps
     "waitlist",
 ]
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -56,6 +58,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "cfehome.urls"
+
+# Put all the allowed CORS requests here. Any other should be revoked
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://172.22.50.40:3000",
+]
 
 TEMPLATES = [
     {

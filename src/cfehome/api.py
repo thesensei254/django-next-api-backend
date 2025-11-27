@@ -22,7 +22,7 @@ class UserSchema(Schema):
 @api.get("/hello")
 def hello(request):
     print(request)
-    return "Hello World"
+    return {"message": "Hello World"}
 
 
 @api.get("/me", response=UserSchema, auth=JWTAuth())
